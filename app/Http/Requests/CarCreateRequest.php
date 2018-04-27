@@ -25,7 +25,7 @@ class CarCreateRequest extends Request
     {
         return [
             'code' => 'required',
-            'namecarre' => 'required|',
+            'namecarre' => 'required',
         ];
     }
 }

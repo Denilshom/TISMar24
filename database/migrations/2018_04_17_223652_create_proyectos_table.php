@@ -23,6 +23,10 @@ class CreateProyectosTable extends Migration
             $table->foreign('namecarre_id')->references('id')->on('carreras');
             $table->rememberToken();
             $table->timestamps();
+            $table->integer('nameare_id')->unsigned();
+            $table->foreign('nameare_id')->references('id')->on('areas');
+            $table->integer('namemodal_id')->unsigned();
+            $table->foreign('namemodal_id')->references('id')->on('modalidads');
         });
     }
 

@@ -6,7 +6,5 @@
 			{!!Form::submit('Actualizar',['class'=>'btn btn-primary'])!!}
 		{!!Form::close()!!}
 
-		{!!Form::open(['route'=>['area.destroy', $area], 'method' => 'DELETE'])!!}
-			{!!Form::submit('Eliminar',['class'=>'btn btn-danger'])!!}
-		{!!Form::close()!!}
+		
 	@endsection

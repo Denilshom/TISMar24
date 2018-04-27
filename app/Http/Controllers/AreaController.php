@@ -43,7 +43,8 @@ class AreaController extends Controller
     public function store(AreaCreateRequest $request)
     {
       Area::create([
-          'name_area' => $request['name_area'],
+          'nameare' => $request['nameare'],
+          'namesubare' => $request['namesubare'],
 
       ]);
       return redirect('/area')->with('message','Area creada correctamente');

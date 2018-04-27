@@ -21,6 +21,9 @@
                 <td>{{$modalidad->namemodal}}</td>
 				<td>
 					{!!link_to_route('modalidad.edit', $title = 'Editar', $parameters = $modalidad, $attributes = ['class'=>'btn btn-primary'])!!}
+					{!!Form::open(['route'=>['modalidad.destroy', $modalidad], 'method' => 'DELETE'])!!}
+							{!!Form::submit('Eliminar',['class'=>'btn btn-danger'])!!}
+					{!!Form::close()!!}
 				</td>
 			</tbody>
 		@endforeach

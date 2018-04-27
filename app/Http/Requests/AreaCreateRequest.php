@@ -24,9 +24,8 @@ class AreaCreateRequest extends Request
     public function rules()
     {
         return [
-            'name_area' => 'required',
-            // 'email' => 'required|unique:users',
-            // 'password' => 'required',
+            'nameare' => 'required',
+            'namesubare'=>'required',
         ];
     }
 }

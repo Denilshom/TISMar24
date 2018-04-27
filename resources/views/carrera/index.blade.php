@@ -21,6 +21,9 @@
                 <td>{{$carrera->namecarre}}</td>
 				<td>
 					{!!link_to_route('carrera.edit', $title = 'Editar', $parameters = $carrera, $attributes = ['class'=>'btn btn-primary'])!!}
+					{!!Form::open(['route'=>['carrera.destroy', $carrera], 'method' => 'DELETE'])!!}
+							{!!Form::submit('Eliminar',['class'=>'btn btn-danger'])!!}
+					{!!Form::close()!!}
 				</td>
 			</tbody>
 		@endforeach

@@ -53,8 +53,8 @@
             <ul class="nav navbar-top-links navbar-right">
                  <li class="dropdown">
                      <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                      {!!Auth::user()->name!!}  <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
-
+                      <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
+                      
                     </a>
                     <ul class="dropdown-menu dropdown-user">
                         <li><a href="#"><i class="fa fa-gear fa-fw"></i> Ajustes</a>
@@ -71,7 +71,7 @@
                     <ul class="nav" id="side-menu">
                         <li>
 
-                            <a href="#"><i class=""></i> Usuario<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-users fa-fw"></i> Usuario<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
                                     <a href="{!!URL::to('/usuario/create')!!}"><i class='fa fa-plus fa-fw'></i>Crear Usuario</a>
@@ -99,7 +99,7 @@
                             </ul>
                         </li>
 
-                        <li>
+                        <!-- <li>
                             <a href="#"><i class=""></i> Modalidad<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
@@ -109,8 +109,8 @@
                                     <a href="{!!URL::to('/modalidad')!!}"><i class='fa fa-list-ol fa-fw'></i> Modalidades</a>
                                 </li>
                             </ul>
-                        </li>
-                        <li>
+                        </li> -->
+                        <!-- <li>
                             <a href="#"><i class=""></i> Carrera<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
@@ -120,15 +120,27 @@
                                     <a href="{!!URL::to('/carrera')!!}"><i class='fa fa-list-ol fa-fw'></i> Carreras</a>
                                 </li>
                             </ul>
-                        </li>
+                        </li> -->
                         <li>
                             <a href="#"><i class=""></i> Proyecto<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="{!!URL::to('/proyecto/create')!!}"><i class='fa fa-plus fa-fw'></i> Agregar</a>
+                                    <a href="{!!URL::to('/proyecto/create')!!}"><i class='fa fa-plus fa-fw'></i> Agregar Proyecto</a>
                                 </li>
                                 <li>
                                     <a href="{!!URL::to('/proyecto')!!}"><i class='fa fa-list-ol fa-fw'></i> Proyectos</a>
+                                </li>
+                                <li>
+                                    <a href="{!!URL::to('/carrera/create')!!}"><i class='fa fa-plus fa-fw'></i> Agregar Carrera</a>
+                                </li>
+                                <li>
+                                    <a href="{!!URL::to('/carrera')!!}"><i class='fa fa-list-ol fa-fw'></i> Carreras</a>
+                                </li>
+                                <li>
+                                    <a href="{!!URL::to('/modalidad/create')!!}"><i class='fa fa-plus fa-fw'></i> Agregar Modalidad</a>
+                                </li>
+                                <li>
+                                    <a href="{!!URL::to('/modalidad')!!}"><i class='fa fa-list-ol fa-fw'></i> Modalidades</a>
                                 </li>
                             </ul>
                         </li>

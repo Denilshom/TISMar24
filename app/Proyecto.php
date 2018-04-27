@@ -17,7 +17,7 @@ class Proyecto extends Model
      * @var array
      */
     protected $fillable = [
-        'titulo','autor','tutor','namecarre_id','path'
+        'titulo','autor','tutor','namecarre_id','nameare_id','namemodal_id','path'
     ];
 
     public function setPathAttribute($path){
@@ -26,12 +26,13 @@ class Proyecto extends Model
         \Storage::disk('local')->put($name,\File::get($path));
     }
     
-    
     public static function Proyectos(){
 		return DB::table('proyectos')
-			->join('carreras','carreras.id','=','proyectos.namecarre_id')
-			->select('proyectos.*', 'carreras.namecarre')
-            ->get();
+            ->join('carreras','carreras.id','=','proyectos.namecarre_id')
+            ->join('areas','areas.id','=','proyectos.nameare_id')
+            ->join('modalidads','modalidads.id','=','proyectos.namemodal_id')
+            ->select('proyectos.*', 'carreras.namecarre','areas.nameare','modalidads.namemodal')   
+            ->paginate(10);
      }
 
      

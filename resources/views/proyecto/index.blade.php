@@ -14,6 +14,8 @@
             <th>Autor</th>
 			<th>Tutor</th>
 			<th>Carrera</th>
+			<th>Area</th>
+			<th>Modalidad</th>
 			<th>Archivo</th>
 			<th>Operacion</th>
 		</thead>
@@ -23,11 +25,14 @@
                 <td>{{$proyecto->autor}}</td>
 				<td>{{$proyecto->tutor}}</td>
 				<td>{{$proyecto->namecarre}}</td>
+				<td>{{$proyecto->nameare}}</td>
+				<td>{{$proyecto->namemodal}}</td>
 				<td>
 				<img src="proyectos/{{$proyecto->path}}" alt="" style="width:100px;" />
             	</td>
 				<td>
 					{!!link_to_route('proyecto.edit', $title = 'Editar', $parameters = $proyecto->id, $attributes = ['class'=>'btn btn-primary'])!!}
+					
 				</td>
 			</tbody>
 		@endforeach

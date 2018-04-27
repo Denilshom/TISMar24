@@ -10,17 +10,19 @@
 	@section('content')
 	<table class="table">
 		<thead>
-			<th>Nombre del Area</th>
-
-
+			<th>Area</th>
+			<th>Sub-Area</th>
 			<th>Operacion</th>
 		</thead>
 		@foreach($areas as $area)
 			<tbody>
-				<td>{{$area->name_area}}</td>
-
+				<td>{{$area->nameare}}</td>
+				<td>{{$area->namesubare}}</td>
 				<td>
 					{!!link_to_route('area.edit', $title = 'Editar', $parameters = $area, $attributes = ['class'=>'btn btn-primary'])!!}
+					{!!Form::open(['route'=>['area.destroy', $area], 'method' => 'DELETE'])!!}
+							{!!Form::submit('Eliminar',['class'=>'btn btn-danger'])!!}
+					{!!Form::close()!!}
 				</td>
 			</tbody>
 		@endforeach

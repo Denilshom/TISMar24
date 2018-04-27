@@ -36,8 +36,10 @@ class ProyectoController extends Controller
     public function create()
     {
         $carreras=Carrera::lists('namecarre','id');
+        $areas=Area::lists('nameare','id');
+        $modalidads=Modalidad::lists('namemodal','id');
 
-        return view('proyecto.create',compact('carreras'));
+        return view('proyecto.create',compact('carreras','areas','modalidads'));
 
     }
 

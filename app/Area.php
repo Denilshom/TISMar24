@@ -28,7 +28,7 @@ class Area extends Model implements AuthenticatableContract,
      *
      * @var array
      */
-    protected $fillable = ['name_area'];
+    protected $fillable = ['nameare','namesubare'];
 
     /**
      * The attributes excluded from the model's JSON form.
@@ -38,8 +38,8 @@ class Area extends Model implements AuthenticatableContract,
     protected $hidden = ['password', 'remember_token'];
 
     public function setPasswordAttribute($valor){
-        if(!empty($valor)){
-            $this->attributes['password'] = \Hash::make($valor);
-        }
+        // if(!empty($valor)){
+        //     $this->attributes['password'] = \Hash::make($valor);
+        // }
     }
 }
