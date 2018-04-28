@@ -21,9 +21,12 @@ class Proyecto extends Model
     ];
 
     public function setPathAttribute($path){
-        $this->attributes['path']=Carbon::now()->second.$path->getClientOriginalName();
+        if(! empty($path)){
+        //$this->attributes['path']=Carbon::now()->second.$path->getClientOriginalName();
         $name=Carbon::now()->second.$path->getClientOriginalName();
+        $this->attributes['path'] = $name;
         \Storage::disk('local')->put($name,\File::get($path));
+        }
     }
     
     public static function Proyectos(){

@@ -13,13 +13,20 @@ use Cinema\Carrera;
 use Cinema\Area;
 use Session;
 use Redirect;
+use Illuminate\Routing\Route;
+
 class ProyectoController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    public function __construct(){
+         $this->middleware('auth');
+         $this->middleware('admin');
+        $this->beforeFilter('@find',['only' => ['edit','update','destroy']]);
+    }
+
+
+    public function find(Route $route){
+        $this->proyecto = Proyecto::find($route->getParameter('proyect'));
+    }
     public function index()
     {
         $proyectos = Proyecto::Proyectos();
@@ -83,8 +90,12 @@ class ProyectoController extends Controller
      */
     public function edit($id)
     {
-        $proyecto = Proyecto::find($id);
-        return view('proyecto.edit',['proyecto'=>$proyecto]);
+        // $proyecto = Proyecto::find($id);
+        // return view('proyecto.edit',['proyecto'=>$proyecto]);
+        $carreras = Carrera::lists('namecarre','id');
+        $areas = Area::lists('nameare','id');
+        $modalidads = Modalidad::lists('namemodal','id');
+        return view('proyecto.edit',['proyecto'=>$this->proyecto,'carreras'=>$carreras,'modalidads'=>$modalidads,'areas'=>$areas]);
     }
 
     /**
@@ -96,9 +107,9 @@ class ProyectoController extends Controller
      */
     public function update(ProyUpdateRequest $request, $id)
     {
-        $proyecto = Proyecto::find($id);
-        $proyecto->fill($request->all());
-        $proyecto->save();
+        //$proyecto = Proyecto::find($id);
+        $this->proyecto->fill($request->all());
+        $this->proyecto->save();
         Session::flash('message','Proyecto Actualizado Correctamente');
         return Redirect::to('/proyecto');
     }
@@ -111,7 +122,8 @@ class ProyectoController extends Controller
      */
     public function destroy($id)
     {
-        Proyecto::destroy($id);
+        $this->proyecto->delete();
+        \Storage::delete($this->proyecto->path);
         Session::flash('message','Proyecto Eliminado Correctamente');
         return Redirect::to('/proyecto');
     }

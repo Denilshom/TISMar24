@@ -11,14 +11,18 @@ use Cinema\Role;
 use Cinema\User;
 use Session;
 use Redirect;
+use Illuminate\Routing\Route;
 
 class UsuarioController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    public function __construct(){
+        $this->beforeFilter('@find',['only' => ['edit','update','destroy']]);
+    }
+
+
+    public function find(Route $route){
+        $this->user = User::find($route->getParameter('usr'));
+    }
     public function index()
     {
 
@@ -37,7 +41,8 @@ class UsuarioController extends Controller
      */
     public function create()
     {
-      $roles = Role::lists('nameRol', 'id');
+      //$roles = Role::lists('nameRol', 'id');
+      $roles = Role::all();     //prueba
       return view('usuario.create',compact('roles'));
     }
 
@@ -63,36 +68,21 @@ class UsuarioController extends Controller
         return redirect('/usuario');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function show($id)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function edit($id)
     {
-        $user = User::find($id);
-        return view('usuario.edit',['user'=>$user]);
+        // $user = User::find($id);
+        // return view('usuario.edit',['user'=>$user]);
+        $roles = Role::all(); 
+        return view('usuario.edit',['user'=>$this->user,'roles'=>$roles]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(UserUpdateRequest $request, $id)
     {
         $user = User::find($id);
