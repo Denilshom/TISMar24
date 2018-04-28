@@ -6,7 +6,7 @@
 <option value="002">Tribunal</option>
 </select> -->
 
-<div class="form-group">
+{{-- <div class="form-group">
 <label for="">Rol</label>
 <select name="nameRol_id"  class="form-control" onchange="window.location.href='{!!URL::to('/new/create')!!}'">
 	@foreach($roles as $var)
@@ -14,7 +14,7 @@
 
 	@endforeach
 </select>
-</div>
+</div> --}}
 
 <!-- fin prueba -->
 <div class="form-group">

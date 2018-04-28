@@ -74,10 +74,32 @@
                             <a href="#"><i class="fa fa-users fa-fw"></i> Usuario<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="{!!URL::to('/usuario/create')!!}"><i class='fa fa-plus fa-fw'></i>Crear Usuario</a>
+                                    <a href="#"><i class="fa fa-plus fa-fw"></i> Crear Usuario<span class="fa arrow"></span></a>
+                                    <ul class="nav nav-second-level">
+                                            <li>
+                                                <a href="{!!URL::to('/usuario')!!}"><i class=''></i> Adminitrador</a>
+                                            </li>
+                                            <li>
+                                                <a href="{!!URL::to('/usuario')!!}"><i class=''></i> Auxiliar</a>
+                                            </li>
+                                            <li>
+                                                <a href="{!!URL::to('/usuario')!!}"><i class=''></i> Profesional</a>
+                                            </li>
+                                    </ul>
                                 </li>
                                 <li>
-                                    <a href="{!!URL::to('/usuario')!!}"><i class='fa fa-list-ol fa-fw'></i> Usuarios</a>
+                                    <a href="#"><i class="fa fa-list-ol fa-fw"></i>Lista Usuario<span class="fa arrow"></span></a>
+                                    <ul class="nav nav-second-level">
+                                            <li>
+                                                <a href="{!!URL::to('/usuario')!!}"><i class=''></i> Adminitradores</a>
+                                            </li>
+                                            <li>
+                                                <a href="{!!URL::to('/usuario')!!}"><i class=''></i> Auxiliares</a>
+                                            </li>
+                                            <li>
+                                                <a href="{!!URL::to('/usuario')!!}"><i class=''></i> Profesionales</a>
+                                            </li>
+                                    </ul>
                                 </li>
                                 <li>
                                     <a href="{!!URL::to('/rol/create')!!}"><i class='fa fa-plus fa-fw'></i>Crear Rol</a>
@@ -99,28 +121,6 @@
                             </ul>
                         </li>
 
-                        <!-- <li>
-                            <a href="#"><i class=""></i> Modalidad<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="{!!URL::to('/modalidad/create')!!}"><i class='fa fa-plus fa-fw'></i> Agregar</a>
-                                </li>
-                                <li>
-                                    <a href="{!!URL::to('/modalidad')!!}"><i class='fa fa-list-ol fa-fw'></i> Modalidades</a>
-                                </li>
-                            </ul>
-                        </li> -->
-                        <!-- <li>
-                            <a href="#"><i class=""></i> Carrera<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="{!!URL::to('/carrera/create')!!}"><i class='fa fa-plus fa-fw'></i> Agregar</a>
-                                </li>
-                                <li>
-                                    <a href="{!!URL::to('/carrera')!!}"><i class='fa fa-list-ol fa-fw'></i> Carreras</a>
-                                </li>
-                            </ul>
-                        </li> -->
                         <li>
                             <a href="#"><i class=""></i> Proyecto<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
