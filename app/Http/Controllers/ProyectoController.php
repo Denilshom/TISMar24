@@ -18,8 +18,8 @@ use Illuminate\Routing\Route;
 class ProyectoController extends Controller
 {
     public function __construct(){
-         $this->middleware('auth');
-         $this->middleware('admin');
+        //  $this->middleware('auth');
+        //  $this->middleware('admin');
         $this->beforeFilter('@find',['only' => ['edit','update','destroy']]);
     }
 
@@ -45,7 +45,6 @@ class ProyectoController extends Controller
         $carreras=Carrera::lists('namecarre','id');
         $areas=Area::lists('nameare','id');
         $modalidads=Modalidad::lists('namemodal','id');
-
         return view('proyecto.create',compact('carreras','areas','modalidads'));
 
     }

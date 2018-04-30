@@ -53,8 +53,8 @@
             <ul class="nav navbar-top-links navbar-right">
                  <li class="dropdown">
                      <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                    {!!Auth::user()->name!!}<i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
-                      
+                    <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
+                      {{-- {!!Auth::user()->name!!} --}}
                     </a>
                     <ul class="dropdown-menu dropdown-user">
                         <li><a href="#"><i class="fa fa-gear fa-fw"></i> Ajustes</a>
@@ -83,7 +83,7 @@
                                                 <a href="{!!URL::to('/usuario')!!}"><i class=''></i> Auxiliar</a>
                                             </li>
                                             <li>
-                                                <a href="{!!URL::to('/usuario')!!}"><i class=''></i> Profesional</a>
+                                                <a href="{!!URL::to('/profesional/create')!!}"><i class=''></i> Profesional</a>
                                             </li>
                                     </ul>
                                 </li>
@@ -97,7 +97,7 @@
                                                 <a href="{!!URL::to('/usuario')!!}"><i class=''></i> Auxiliares</a>
                                             </li>
                                             <li>
-                                                <a href="{!!URL::to('/usuario')!!}"><i class=''></i> Profesionales</a>
+                                                <a href="{!!URL::to('/profesional')!!}"><i class=''></i> Profesionales</a>
                                             </li>
                                     </ul>
                                 </li>
@@ -162,6 +162,7 @@
     {!!Html::script('js/bootstrap.min.js')!!}
     {!!Html::script('js/metisMenu.min.js')!!}
     {!!Html::script('js/sb-admin-2.js')!!}
+    
 
 </body>
 

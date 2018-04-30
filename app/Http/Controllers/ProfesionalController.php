@@ -7,27 +7,34 @@ use Cinema\Http\Requests;
 use Cinema\Http\Requests\AreaCreateRequest;
 use Cinema\Http\Requests\AreaUpdateRequest;
 use Cinema\Http\Controllers\Controller;
-//use Cinema\New;
+use Cinema\Profesional;
+use Cinema\Area;
 use Session;
 use Redirect;
 
-class NewController extends Controller
+class ProfesionalController extends Controller
 {
     
      public function index()
      {
-        //
+        $profesionals=Profesional::Profesionals();
+
+        return view('profesional.index',compact('profesionals'));
      }
     
     public function create()
     {
-        return view('new.create');
+        $areas=Area::all();
+        return view('profesional.create', compact('areas'));
+
     }
 
     
-    public function store(AreaCreateRequest $request)
+    public function store(Request $request)
     {
-      //
+        Profesional::create($request->all());
+
+        return redirect('/profesional')->with('message','Creado exitosamente');
     }
 
     

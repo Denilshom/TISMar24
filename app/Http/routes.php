@@ -21,7 +21,7 @@ Route::resource('carrera','CarreraController');
 Route::resource('modalidad','ModalidadController');
 Route::resource('area','AreaController');
 Route::resource('proyecto','ProyectoController');
-Route::resource('new','NewController');
+
 
 Route::get('carreras/{id}/destroy',[
     'carreras'=>'CarreraController@destroy',
@@ -37,3 +37,6 @@ Route::resource('rol','RolController');
 Route::resource('log','LogController');
 
 Route::get('logout', 'LogController@logout');
+
+//para el profesional
+Route::resource('profesional','ProfesionalController');
