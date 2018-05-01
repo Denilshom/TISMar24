@@ -8,7 +8,7 @@
       <th>Apellido</th>
       <th>Telefono</th>
 			<th>Correo</th>
-			<th>Rol</th>
+			{{-- <th>Rol</th> --}}
 			<th>Operacion</th>
 		</thead>
 
@@ -18,7 +18,7 @@
         <td>{{$user->surname}}</td>
         <td>{{$user->phone}}</td>
 				<td>{{$user->email}}</td>
-				<td>{{$user->nameRol}}</td>
+
 				<td>
 					{!!link_to_route('usuario.edit', $title = 'Editar', $parameters = $user->id, $attributes = ['class'=>'btn btn-primary'])!!}
 					{!!Form::open(['route'=>['usuario.destroy', $user->id], 'method' => 'DELETE'])!!}

@@ -53,8 +53,8 @@
             <ul class="nav navbar-top-links navbar-right">
                  <li class="dropdown">
                      <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                    {!!Auth::user()->name!!}<i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
-                      
+                       <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
+                      {{-- {!!Auth::user()->name!!} --}}
                     </a>
                     <ul class="dropdown-menu dropdown-user">
                         <li><a href="#"><i class="fa fa-gear fa-fw"></i> Ajustes</a>
@@ -77,7 +77,7 @@
                                     <a href="#"><i class="fa fa-plus fa-fw"></i> Crear Usuario<span class="fa arrow"></span></a>
                                     <ul class="nav nav-second-level">
                                             <li>
-                                                <a href="{!!URL::to('/usuario')!!}"><i class=''></i> Adminitrador</a>
+                                                <a href="{!!URL::to('/usuario/create')!!}"><i class=''></i> Adminitrador</a>
                                             </li>
                                             <li>
                                                 <a href="{!!URL::to('/usuario')!!}"><i class=''></i> Auxiliar</a>
@@ -91,7 +91,7 @@
                                     <a href="#"><i class="fa fa-list-ol fa-fw"></i>Lista Usuario<span class="fa arrow"></span></a>
                                     <ul class="nav nav-second-level">
                                             <li>
-                                                <a href="{!!URL::to('/usuario')!!}"><i class=''></i> Adminitradores</a>
+                                                <a href="{!!URL::to('/usuario')!!}"><i class=''></i> Administradores</a>
                                             </li>
                                             <li>
                                                 <a href="{!!URL::to('/usuario')!!}"><i class=''></i> Auxiliares</a>
@@ -101,12 +101,12 @@
                                             </li>
                                     </ul>
                                 </li>
-                                <li>
+                                {{-- <li>
                                     <a href="{!!URL::to('/rol/create')!!}"><i class='fa fa-plus fa-fw'></i>Crear Rol</a>
-                                </li>
-                                <li>
+                                </li> --}}
+                                {{-- <li>
                                     <a href="{!!URL::to('/rol')!!}"><i class='fa fa-list-ol fa-fw'></i> Roles</a>
-                                </li>
+                                </li> --}}
                             </ul>
                         </li>
                         <li>

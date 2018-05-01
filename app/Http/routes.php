@@ -37,3 +37,5 @@ Route::resource('rol','RolController');
 Route::resource('log','LogController');
 
 Route::get('logout', 'LogController@logout');
+//Rutas Para Auxiliar
+Route::resource('auxiliar', 'AuxiliarController');
