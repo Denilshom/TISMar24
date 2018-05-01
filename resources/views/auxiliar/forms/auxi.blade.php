@@ -1,5 +1,5 @@
 <br>
-<h1>Registro Usuario-Administrador</h1>
+<h1>Registro Usuario-Auxiliar</h1>
 <div class="form-group">
 		{!!Form::label('nombre','Nombre:')!!}
 		{!!Form::text('name',null,['class'=>'form-control','placeholder'=>'Ingresa el Nombre del usuario'])!!}

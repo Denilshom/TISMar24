@@ -29,16 +29,16 @@ class User extends Model implements AuthenticatableContract,
      *
      * @var array
      */
-    protected $fillable = ['name', 'email', 'password','surname','phone','nameRol_id',];
+    protected $fillable = ['name', 'email', 'password','surname','phone'];
 
 
-    public static function Users(){
-      return DB::table('users')
-          ->join('roles','roles.id','=','users.nameRol_id')
-          -> select('users.*','roles.nameRol')
-          ->paginate(2);
-
-    }
+    // public static function Users(){
+    //   return DB::table('users')
+    //       ->join('roles','roles.id','=','users.nameRol_id')
+    //       -> select('users.*','roles.nameRol')
+    //       ->paginate(2);
+    //
+    // }
 
     /**
      * The attributes excluded from the model's JSON form.
