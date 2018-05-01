@@ -53,12 +53,8 @@
             <ul class="nav navbar-top-links navbar-right">
                  <li class="dropdown">
                      <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-<<<<<<< HEAD
                     <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
-=======
-                       <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
->>>>>>> origin/master
-                      {{-- {!!Auth::user()->name!!} --}}
+                     
                     </a>
                     <ul class="dropdown-menu dropdown-user">
                         <li><a href="#"><i class="fa fa-gear fa-fw"></i> Ajustes</a>
@@ -104,13 +100,7 @@
                                                 <a href="{!!URL::to('/profesional')!!}"><i class=''></i> Profesionales</a>
                                             </li>
                                     </ul>
-                                </li>
-                                {{-- <li>
-                                    <a href="{!!URL::to('/rol/create')!!}"><i class='fa fa-plus fa-fw'></i>Crear Rol</a>
-                                </li> --}}
-                                {{-- <li>
-                                    <a href="{!!URL::to('/rol')!!}"><i class='fa fa-list-ol fa-fw'></i> Roles</a>
-                                </li> --}}
+                                </li> 
                             </ul>
                         </li>
                         <li>
