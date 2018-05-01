@@ -54,7 +54,7 @@
                  <li class="dropdown">
                      <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                     <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
-                     
+                     {{-- {!!Auth::user()->name!!} --}}
                     </a>
                     <ul class="dropdown-menu dropdown-user">
                         <li><a href="#"><i class="fa fa-gear fa-fw"></i> Ajustes</a>
@@ -100,7 +100,7 @@
                                                 <a href="{!!URL::to('/profesional')!!}"><i class=''></i> Profesionales</a>
                                             </li>
                                     </ul>
-                                </li> 
+                                </li>
                             </ul>
                         </li>
                         <li>
@@ -156,7 +156,7 @@
     {!!Html::script('js/bootstrap.min.js')!!}
     {!!Html::script('js/metisMenu.min.js')!!}
     {!!Html::script('js/sb-admin-2.js')!!}
-    
+
 
 </body>
 
