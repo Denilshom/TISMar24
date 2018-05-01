@@ -80,7 +80,7 @@
                                                 <a href="{!!URL::to('/usuario/create')!!}"><i class=''></i> Adminitrador</a>
                                             </li>
                                             <li>
-                                                <a href="{!!URL::to('/usuario')!!}"><i class=''></i> Auxiliar</a>
+                                                <a href="{!!URL::to('/auxiliar/create')!!}"><i class=''></i> Auxiliar</a>
                                             </li>
                                             <li>
                                                 <a href="{!!URL::to('/profesional/create')!!}"><i class=''></i> Profesional</a>
@@ -94,7 +94,7 @@
                                                 <a href="{!!URL::to('/usuario')!!}"><i class=''></i> Administradores</a>
                                             </li>
                                             <li>
-                                                <a href="{!!URL::to('/usuario')!!}"><i class=''></i> Auxiliares</a>
+                                                <a href="{!!URL::to('/auxiliar')!!}"><i class=''></i> Auxiliares</a>
                                             </li>
                                             <li>
                                                 <a href="{!!URL::to('/profesional')!!}"><i class=''></i> Profesionales</a>
