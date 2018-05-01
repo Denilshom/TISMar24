@@ -35,7 +35,7 @@ lo puse "nameare_id" --}}
 <div class="col-sm-3 nopadding">
   <div class="form-group">
     <div class="input-group">
-      <select name="nameare_id"  class="form-control" id="educationDate">
+      <select name="nameare_id"  class="form-control" id="educationDate" multiple>
 	      @foreach($areas as $area)
 	        <option value="{{ $area['id'] }}">{{$area['nameare']}}</option>
         @endforeach
