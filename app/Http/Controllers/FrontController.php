@@ -5,7 +5,7 @@ namespace Cinema\Http\Controllers;
 use Illuminate\Http\Request;
 use Cinema\Http\Requests;
 use Cinema\Http\Controllers\Controller;
-
+use Cinema\Proyecto;
 class FrontController extends Controller
 {
    public function index(){
@@ -17,7 +17,8 @@ class FrontController extends Controller
    }
 
    public function reviews(){
-        return view('reviews');
+      $proyectos = Proyecto::Proyectos();
+        return view('reviews', compact('proyectos'));
    }
 
    public function admin(){

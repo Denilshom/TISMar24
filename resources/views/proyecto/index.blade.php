@@ -27,14 +27,14 @@
 				<td>{{$proyecto->namecarre}}</td>
 				<td>{{$proyecto->nameare}}</td>
 				<td>{{$proyecto->namemodal}}</td>
-				
+
 				<td><a href="proyectos/{{$proyecto->path}}" target="_blank"><i class="fa fa-file-pdf-o" style="font-size:20px;color:red"></i></a></td>
-				
+
 				<img src="proyectos/{{$proyecto->path}}" alt="" style="width:100px;" />
             	</td>
 				<td>
 					{!!link_to_route('proyecto.edit', $title = 'Editar', $parameters = $proyecto->id, $attributes = ['class'=>'btn btn-primary'])!!}
-					
+
 				</td>
 			</tbody>
 		@endforeach
