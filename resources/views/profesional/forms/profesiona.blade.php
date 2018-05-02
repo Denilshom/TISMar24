@@ -79,7 +79,7 @@ function education_fields() {
 </div>
 
 <div class="input-group">
-<label for="">Area:</label>
+<label for="">Areas:</label>
 <select name="nameare_id[]"  size="3" class="form-control" id="educationDate" multiple>
 	      @foreach($areas as $area)
 	        <option value="{{ $area['id'] }}">{{$area['nameare']}}</option>
