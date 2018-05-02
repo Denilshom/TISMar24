@@ -25,9 +25,9 @@
 {{-- {!!Form:: label ('Area')!!}
 <div class="panel panel-default">
   <div class="panel-body">
-  
+
   <div id="education_fields">
-          
+
   </div>
 
 <div class="col-sm-3 nopadding">
@@ -45,7 +45,7 @@
   </div>
 </div>
 <div class="clear"></div>
-  
+
   </div>
   <div class="panel-footer"><small>Press <span class="glyphicon glyphicon-plus gs"></span> to add another form field :)</small>, <small>Press <span class="glyphicon glyphicon-minus gs"></span> to remove form field :)</small></div>
 </div>
@@ -53,14 +53,14 @@
 <script>
 var room = 1;
 function education_fields() {
- 
+
     room++;
     var objTo = document.getElementById('education_fields')
     var divtest = document.createElement("div");
 	divtest.setAttribute("class", "form-group removeclass"+room);
 	var rdiv = 'removeclass'+room;
     divtest.innerHTML = '<div class="col-sm-3 nopadding"><div class="form-group"><div class="input-group"> <select name="nameare_id"  class="form-control" id="educationDate">@foreach($areas as $area) <option value="{{ $area['id'] }}">{{$area['nameare']}}</option> @endforeach </select><div class="input-group-btn"> <button class="btn btn-danger" type="button" onclick="remove_education_fields('+ room +');"> <span class="glyphicon glyphicon-minus" aria-hidden="true"></span> </button></div></div></div></div><div class="clear"></div>';
-    
+
     objTo.appendChild(divtest)
 }
    function remove_education_fields(rid) {
@@ -80,7 +80,7 @@ function education_fields() {
 
 <div class="input-group">
 <label for="">Areas:</label>
-<select name="nameare_id[]"  size="3" class="form-control" id="educationDate" multiple>
+<select name="nameare_id"  size="3" class="form-control" id="educationDate" multiple>
 	      @foreach($areas as $area)
 	        <option value="{{ $area['id'] }}">{{$area['nameare']}}</option>
         @endforeach

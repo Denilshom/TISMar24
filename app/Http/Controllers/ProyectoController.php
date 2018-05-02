@@ -25,12 +25,12 @@ class ProyectoController extends Controller
 
 
     public function find(Route $route){
-        $this->proyecto = Proyecto::find($route->getParameter('proyect'));
+        $this->proyecto = Proyecto::find($route->getParameter('proyecto'));
     }
     public function index()
     {
         $proyectos = Proyecto::Proyectos();
-        //return $proyectos;
+        // return $proyectos;
         return view('proyecto.index',compact('proyectos'));
 
     }
@@ -43,6 +43,7 @@ class ProyectoController extends Controller
     public function create()
     {
         $carreras=Carrera::lists('namecarre','id');
+
         $areas=Area::lists('nameare','id');
         $modalidads=Modalidad::lists('namemodal','id');
         return view('proyecto.create',compact('carreras','areas','modalidads'));
@@ -89,11 +90,16 @@ class ProyectoController extends Controller
      */
     public function edit($id)
     {
+        // return $id;
         // $proyecto = Proyecto::find($id);
         // return view('proyecto.edit',['proyecto'=>$proyecto]);
         $carreras = Carrera::lists('namecarre','id');
+        // return $carreras;
         $areas = Area::lists('nameare','id');
+
+
         $modalidads = Modalidad::lists('namemodal','id');
+
         return view('proyecto.edit',['proyecto'=>$this->proyecto,'carreras'=>$carreras,'modalidads'=>$modalidads,'areas'=>$areas]);
     }
 
@@ -106,7 +112,7 @@ class ProyectoController extends Controller
      */
     public function update(ProyUpdateRequest $request, $id)
     {
-        //$proyecto = Proyecto::find($id);
+
         $this->proyecto->fill($request->all());
         $this->proyecto->save();
         Session::flash('message','Proyecto Actualizado Correctamente');
