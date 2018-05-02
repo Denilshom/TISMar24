@@ -69,7 +69,7 @@ function education_fields() {
 </script> --}}
 
 {{-- fin prueba 2 select dinamico--}}
-
+{{-- ahora --}}
 <div class="input-group">
 <label for="">Invitado:</label>
 <select name="invitado"  class="form-control">
