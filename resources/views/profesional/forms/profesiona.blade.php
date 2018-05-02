@@ -101,3 +101,4 @@ function education_fields() {
     {!!Form:: label ('Confirmar contrasena')!!}
     {!!Form::password('confirmar_contrasena',['class'=>'form-control', 'placeholder'=>'Ingresa la misma contrasena del usuario'])!!}
 </div>
+{{-- fin de registro de profesional --}}
