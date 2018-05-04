@@ -30,12 +30,12 @@
 								<a class="span" href="single.html">
 									 <i>{{$var->titulo}}</i></a>
 								<p class="info">AUTOR:&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{$var->autor}}</p>
-								<p class="info">TUTOR: &nbsp;&nbsp;&nbsp;&nbsp;{{$var->tutor}}</p>
+								<p class="info">TUTOR: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{$var->tutor}}</p>
 								<p class="info">CARRERA:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{$var->namecarre}}</p>
-								<p class="info">AREA:&nbsp;&nbsp;&nbsp; &nbsp; {{$var->nameare}}</p>
-								<p class="info">MODALIDAD:&nbsp;&nbsp;&nbsp; &nbsp; {{$var->namemodal}}</p>
-								<p>FORMULARIO:</p>
-								<a class="info" href="proyectos/{{$var->path}}" target="_blank"><p class="info">MODALIDAD:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; {{$var->path}}</P></a>
+								<p class="info">AREA:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{$var->nameare}}</p>
+								<p class="info">MODALIDAD:&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; {{$var->namemodal}}</p>
+								<a class="info" href="proyectos/{{$var->path}}" target="_blank"><p class="info">Archivo:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{$var->path}}</P></a>
+								<p class="info">DESCRIPCION:&nbsp;&nbsp;&nbsp; &nbsp; {{$var->descripcion}}</p>
 							</div>
 
 							<div class="clearfix"></div>

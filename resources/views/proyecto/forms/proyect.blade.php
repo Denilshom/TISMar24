@@ -30,7 +30,6 @@
 </div>
 <div class="form-group">
          {!!Form:: label ('Descripción')!!}
-
-            <textarea class="form-control" rows="5" placeholder="Descripcion del proyecto"></textarea>
+            <textarea name="descripcion" class="form-control" rows="5" placeholder="Descripcion del proyecto"></textarea>
 
 </div>

@@ -11,13 +11,14 @@ class Profesional extends Model
     protected $table="profesionals";
 
     protected $fillable = [
-        'name','surname','phone','invitado','nameare_id','email','password'
+        'name','surname','phone','invitado','nameare_id','namecarre_id','email','password'
     ];
 
     public static function Profesionals(){
         return DB::table('profesionals')
             ->join('areas','areas.id','=','profesionals.nameare_id')
-            -> select('profesionals.*','areas.nameare')
+            ->join('carreras','carreras.id','=','profesionals.namecarre_id')
+            -> select('profesionals.*','areas.nameare','carreras.namecarre')
             ->paginate(2);
   
       }

@@ -18,6 +18,7 @@ class CreateAreasTable extends Migration
             $table->string('namesubare');
             $table->rememberToken();
             $table->timestamps();
+            
         });
     }
 

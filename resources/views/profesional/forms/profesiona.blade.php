@@ -1,9 +1,4 @@
-<head>
-    {{-- prueba 2 --}}
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-</head>
+
 
 <div class="form-group">
 		{!!Form::label('nombre','Nombre:')!!}
@@ -86,6 +81,10 @@ function education_fields() {
         @endforeach
 </select>
 </div>
+<div class="form-group">
+			{!!Form::label('Carrera','Carrera:')!!}
+			{!!Form::select('namecarre_id',$carreras)!!}
+		</div>
 
 <div class="form-group">
 		{!!Form::label('email','Correo:')!!}

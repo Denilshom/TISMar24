@@ -22,6 +22,8 @@ class CreateProfesionalsTable extends Migration
             $table->string('invitado');
             $table->integer('nameare_id')->unsigned();
             $table->foreign('nameare_id')->references('id')->on('areas');
+            $table->integer('namecarre_id')->unsigned();
+            $table->foreign('namecarre_id')->references('id')->on('carreras');
             $table->timestamps();
         });
     }

@@ -19,6 +19,7 @@ class CreateProyectosTable extends Migration
             $table->string('autor');
             $table->string('tutor');
             $table->string('path');
+            $table->string('descripcion');
             $table->integer('namecarre_id')->unsigned();
             $table->foreign('namecarre_id')->references('id')->on('carreras');
             $table->rememberToken();

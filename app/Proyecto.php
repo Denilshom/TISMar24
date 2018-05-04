@@ -17,7 +17,7 @@ class Proyecto extends Model
      * @var array
      */
     protected $fillable = [
-        'titulo','autor','tutor','namecarre_id','nameare_id','namemodal_id','path'
+        'titulo','autor','tutor','namecarre_id','nameare_id','namemodal_id','descripcion','path'
     ];
 
     public function setPathAttribute($path){

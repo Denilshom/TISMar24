@@ -10,6 +10,7 @@
 			<th>Invitado</th>
             <th>Correo</th>
             <th>Area</th>
+			<th>Carrera</th>
 			<th>Operacion</th>
 		</thead>
 
@@ -21,6 +22,7 @@
                 <td>{{$profesional->invitado}}</td>
 				<td>{{$profesional->email}}</td>
 				<td>{{$profesional->nameare}}</td>
+				<td>{{$profesional->namecarre}}</td>
 				<td>
 				
 					{!!link_to_route('profesional.edit', $title = 'Editar', $parameters = $profesional->id, $attributes = ['class'=>'btn btn-primary'])!!}
