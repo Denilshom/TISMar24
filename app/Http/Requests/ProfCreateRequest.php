@@ -30,6 +30,7 @@ class ProfCreateRequest extends Request
           'phone' => 'required|numeric',
           'password' => 'required|max:50',
           'confirmar_contrasena' => 'required|same:password',
+          
         ];
     }
 }

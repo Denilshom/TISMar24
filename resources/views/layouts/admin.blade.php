@@ -138,6 +138,17 @@
                                 </li>
                             </ul>
                         </li>
+                        <li>
+                            <a href="#"><i class=""></i> Asignar<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="#"><i class='fa fa-plus fa-fw'></i> Agregar Asignacion</a>
+                                </li>
+                                <li>
+                                    <a href="#"><i class='fa fa-list-ol fa-fw'></i> Asignaciones</a>
+                                </li>
+                            </ul>
+                        </li>
 
                     </ul>
                 </div>
