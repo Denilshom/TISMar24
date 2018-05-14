@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Cinema A Entertainment Category Flat Bootstarp Resposive Website Template | Home :: w3layouts</title>
+<title>SAT | UMSS </title>
 {!!Html::style("css/bootstrap.css")!!}
 {!!Html::style("css/style.css")!!}
 {!!Html::script("js/jquery.min.js")!!}
@@ -43,9 +43,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<p class="claim">El sistema realizara la asignacion de tribunales segun la area del proyecto</p>
 		<a href="cabacDevs@gmail.com">ecabacDevs@gmail.com</a>
 		<div class="copyright">
-			<p> Template by  <a href="http://fcyt.edu.bo">  fcyt.edu.bo</a></p>
-			<p> Template by  <a href="http://www.websis.com">  websis.com</a></p>
-			<p> Template by  <a href="http://www.css.com">  css.umss.edu.bo</a></p>
+			<p> Template by  <a href="http://fcyt.umss.edu.bo">  FCYT</a></p>
+			<p> Template by  <a href="http://websis.umss.edu.bo">  WEBSIS</a></p>
+			<p> Template by  <a href="http://www.cs.umss.edu.bo">  CS</a></p>
 
 		</div>
 	</div>

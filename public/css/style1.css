@@ -29,7 +29,6 @@ h1,h2,h3,h4,h5,h6{
 }
 p{
 	margin:0;
-	
 }
 ul{
 	margin:0;
@@ -37,8 +36,6 @@ ul{
 }
 label{
 	margin:0;
-	color:#fff;
-
 }
 /*-----start-header----*/
 .full {
@@ -53,7 +50,7 @@ label{
 }
 .header {
 	background: url('../images/fcyte.JPG') no-repeat 0px 0px;
-	background-size:50% 60%;
+	background-size:cover;
 	-webkit-background-size:cover;
 	-moz-background-size:cover;
 	-o-background-size:cover;
@@ -64,7 +61,7 @@ label{
 	float:right;
 	padding-top:4em;
 	width:25%;
-	margin-right: 2%;
+	margin-right: 2.5%;
 }
 .header-info h1 {
 	color:#fff;
@@ -176,10 +173,10 @@ i.video1 {
 	  display: block;
 }
 .menu ul li a.active {
-	background:#4c4c4c;
+	background:#dfb636;
 }
 .menu ul li a:hover {
-	background:  #243897 ;
+	background: #dfb636;
 }
 i.home {
 	width:60px;
@@ -238,13 +235,13 @@ i.videos1 {
 i.watching {
 	width:60px;
 	height:60px;
-	background: url('../images/smashicons.png') no-repeat -605px -405px;
+	background: url('../images/img-sprite.png') no-repeat -120px 0px;
 	display:block;
 }
 i.watching1 {
 	width:60px;
 	height:60px;
-	background: url('../images/smashicons.png') no-repeat -605px -405px;
+	background: url('../images/img-sprite.png') no-repeat -120px -60px;
 	display:none;
 }
 .menu ul li a:hover div.cat i.watching{
@@ -286,13 +283,13 @@ i.booking1 {
 i.contact {
 	width:60px;
 	height:60px;
-	background: url('../images/smashicons.png') no-repeat -725px -30px;
+	background: url('../images/img-sprite.png') no-repeat -240px 0px;
 	display:block;
 }
 i.contact1 {
 	width:60px;
 	height:60px;
-	background: url('../images/smashicons.png') no-repeat -725px -30px;
+	background: url('../images/img-sprite.png') no-repeat -240px -60px;
 	display:none;
 }
 .menu ul li a:hover div.cnt i.contact{
@@ -316,7 +313,7 @@ i.contact1 {
 	float: left;
 }
 .logo p {
-	color:#DE180C;
+	color:#D0D0D0;
 	font-size:1.35em;
 	letter-spacing:2px;
 	text-transform:uppercase;
@@ -396,7 +393,7 @@ i.contact1 {
 	display:none;
 }
 .review-slider {
-	background:   #243897  ;
+	background: #dfb636;
 	padding: 3em 0;
 }
 .video iframe {
@@ -503,7 +500,7 @@ i.book {
 }
 .footer {
 	background:#f3f3f3;
-	padding:1em 3em;
+	padding:4em 3em;
 }
 .footer h6 {
 	color:#6F6F6F;
@@ -1304,13 +1301,13 @@ font-weight: 700;
 		font-size: 0.95em;
 	}
 	.header {
-		min-height: 500px;
+		min-height: 630px;
 	}
 	.logo {
 		width: 36%;
 	}
 	.logo img {
-		width: 40%;
+		width: 95%;
 	}
 	.search {
 		padding: 6px 8px;

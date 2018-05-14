@@ -43,3 +43,5 @@ Route::get('logout', 'LogController@logout');
 Route::resource('profesional','ProfesionalController');
 //Rutas Para Auxiliar
 Route::resource('auxiliar', 'AuxiliarController');
+
+Route::resource('asignacion', 'AsignacionController');
