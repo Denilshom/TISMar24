@@ -14,7 +14,7 @@ use Cinema\Area;
 use Session;
 use Redirect;
 use Illuminate\Routing\Route;
-
+use Carbon\Carbon;
 class ProyectoController extends Controller
 {
     public function __construct(){

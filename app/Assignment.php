@@ -10,14 +10,39 @@ class Assignment extends Model
     protected $table='assignments';
     protected $fillable=['name_id','titulo_id'];
 
+    public  function  Proyecto()
+    {
+        return $this->belongsTo('App\Producto');
+    }
+    public  static  function AsignacionesTribu() {
+        return  DB::table('proyectos')
+                ->leftJoin('assignments', 'proyectos.id', '=', 'assignments.titulo_id')
+               -> select('proyectos.titulo','proyectos.id','assignments.name_id')
+               ->groupby('proyectos.id')
+                ->get();
+        /**
+            DB::table('proyectos')
+            ->join('proyectos','proyectos.id','=','assignments.titulo_id')
+            -> select('proyectos.titulo','proyectos.id','assignments.name_id')
 
+            ->get()->distinct('proyectos.id');
+         * */
+    }
     public static function Asignaciones(){
       return DB::table('assignments')
-          ->join('profesionals','profesionals.id','=','assignments.name_id')
           ->join('proyectos','proyectos.id','=','assignments.titulo_id')
-          -> select('profesionals.name','proyectos.titulo')
+          -> select('proyectos.titulo','assignments.name_id')
          
           ->get();
+
+      /**
+       *   return DB::table('assignments')
+      ->join('profesionals','profesionals.id','=','assignments.name_id')
+      ->join('proyectos','proyectos.id','=','assignments.titulo_id')
+      -> select('profesionals.name','proyectos.titulo','profesionals.id')
+
+      ->get();
+       */
         
 
     }

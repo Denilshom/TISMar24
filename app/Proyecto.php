@@ -43,4 +43,8 @@ class Proyecto extends Model
     protected $hidden = [
         // 'password', 'remember_token',
     ];
+
+    public  function  Assignment()
+    { return  $this->hasMany('App\Assignment');
+    }
 }

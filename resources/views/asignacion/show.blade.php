@@ -1,25 +1,22 @@
 @extends('layouts.admin')
 @section('content')
+
+	<h4> Nombre del Proyecto : {{ $proyecto->titulo }}</h4>
   <table class="table">
 		
   		<thead>
-		  <th>Titulo</th>
-			<th>Tribunal 1</th>
-			<th>Tribunal 2</th>
-			<th>Tribunal 3</th>
+			<th>Tribunales</th>
 
   			<th>Operacion</th>
   		</thead>
 
-  		@foreach($asignaciones as $edit)
+  		@foreach($asignaciones as $assigned)
   			<tbody>
-				<td>{{$edit->titulo}}</td>
-  				<td>{{$edit->name_id}}</td>
-				<td>{{$edit->name_id}}</td>
-				<td>{{$edit->name_id}}</td>
+				<td>{{$assigned->titulo_id}}</td>
+  				<td>{{ \Cinema\Profesional::findOrFail($assigned->name_id)->name }}</td>
 
   				<td>
-  					{!!link_to_route('asignacion.edit', $title = 'Cambiar', $attributes = ['class'=>'btn btn-primary'])!!}
+
   					{{-- {!!Form::open(['route'=>['asignacion.destroy', $var->id], 'method' => 'DELETE'])!!}
   						{!!Form::submit('Eliminar',['class'=>'btn btn-danger'])!!}
   					{!!Form::close()!!} --}}

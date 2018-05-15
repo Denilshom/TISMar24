@@ -15,7 +15,7 @@
 
 
   				<td>
-  					{!!link_to_route('asignacion.edit', $title = 'Ver', $attributes = ['class'=>'btn btn-primary'])!!}
+  					{!!link_to_route('asignacion.show',$title = 'Ver',[$var->id], $attributes = ['class'=>'btn btn-primary'])!!}
   					{{-- {!!Form::open(['route'=>['asignacion.destroy', $var->id], 'method' => 'DELETE'])!!}
   						{!!Form::submit('Eliminar',['class'=>'btn btn-danger'])!!}
   					{!!Form::close()!!} --}}

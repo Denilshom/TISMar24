@@ -45,3 +45,5 @@ Route::resource('profesional','ProfesionalController');
 Route::resource('auxiliar', 'AuxiliarController');
 
 Route::resource('asignacion', 'AsignacionController');
+
+Route::post('select-ajax', ['as'=>'select-ajax','uses'=>'AsignacionController@selectAjax']);

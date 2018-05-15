@@ -168,7 +168,7 @@
     {!!Html::script('js/metisMenu.min.js')!!}
     {!!Html::script('js/sb-admin-2.js')!!}
 
-
+    @stack('scripts')
 </body>
 
 <!-- Footer -->
