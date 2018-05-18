@@ -104,6 +104,17 @@
                             </ul>
                         </li>
                         <li>
+                            <a href="#"><i class=""></i> Subarea<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="{!!URL::to('/subarea/create')!!}"><i class='fa fa-plus fa-fw'></i> Agregar</a>
+                                </li>
+                                <li>
+                                    <a href="{!!URL::to('/subarea')!!}"><i class='fa fa-list-ol fa-fw'></i> Subreas</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
                             <a href="#"><i class=""></i> Area<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
@@ -145,7 +156,18 @@
                                     <a href="{!!URL::to('/asignacion/create')!!}"><i class='fa fa-plus fa-fw'></i> Agregar Asignacion</a>
                                 </li>
                                 <li>
-                                    <a href="{!!URL::to('/modalidad')!!}"><i class='fa fa-list-ol fa-fw'></i> Asignaciones</a>
+                                    <a href="{!!URL::to('/asignacion')!!}"><i class='fa fa-list-ol fa-fw'></i> Asignaciones</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#"><i class=""></i> Reportes<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="{!!URL::to('/area/create')!!}"><i class='fa fa-plus fa-fw'></i> Busqueda</a>
+                                </li>
+                                <li>
+                                    <a href="{!!URL::to('/area')!!}"><i class='fa fa-list-ol fa-fw'></i> Consultas</a>
                                 </li>
                             </ul>
                         </li>

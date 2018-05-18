@@ -22,13 +22,7 @@ Route::resource('carrera','CarreraController');
 Route::resource('modalidad','ModalidadController');
 Route::resource('area','AreaController');
 Route::resource('proyecto','ProyectoController');
-
-
-Route::get('carreras/{id}/destroy',[
-    'carreras'=>'CarreraController@destroy',
-    'as'=>'admin.carreras.destroy'
-]);
-
+Route::resource('subarea','SubareaController');
 //RUTA PARA ROLES
 
 Route::resource('rol','RolController');
@@ -47,3 +41,5 @@ Route::resource('auxiliar', 'AuxiliarController');
 Route::resource('asignacion', 'AsignacionController');
 
 Route::post('select-ajax', ['as'=>'select-ajax','uses'=>'AsignacionController@selectAjax']);
+
+Route::resource('reporte', 'ReporteController');

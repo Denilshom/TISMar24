@@ -41,7 +41,7 @@ class AsignacionController extends Controller
     {
         $profesionales=Profesional::lists('name','id');
         $proyectos=Proyecto::lists('titulo','id');
-      
+
 
 
         return view('asignacion.create',compact('profesionales','proyectos'));
@@ -121,11 +121,13 @@ class AsignacionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id  )
     {
-        $asignaciones=Assignment::Asignaciones();
+      return $id;
+      $profesionales=Profesional::lists('name','id');
+        //$data=Req::lists('id','name');
       // return $asignaciones;
-      return view('asignacion.edit', compact('asignaciones'));
+      return view('asignacion.edit', compact('profesionales'));
     }
 
     /**

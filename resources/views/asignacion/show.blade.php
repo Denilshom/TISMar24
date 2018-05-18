@@ -3,11 +3,12 @@
 
 	<h4> Nombre del Proyecto : {{ $proyecto->titulo }}</h4>
   <table class="table">
-		
-  		<thead>
-			<th>Tribunales</th>
 
-  			<th>Operacion</th>
+  		<thead>
+			<th>ID</th>
+
+  			<th>Tribunales</th>
+			  <th>Operacion</th>
   		</thead>
 
   		@foreach($asignaciones as $assigned)
@@ -17,9 +18,9 @@
 
   				<td>
 
-  					{{-- {!!Form::open(['route'=>['asignacion.destroy', $var->id], 'method' => 'DELETE'])!!}
-  						{!!Form::submit('Eliminar',['class'=>'btn btn-danger'])!!}
-  					{!!Form::close()!!} --}}
+  					{!!Form::open(['route'=>['asignacion.edit', $assigned->id], 'method' => 'PUT'])!!}
+  						{!!Form::submit('cambiar',['class'=>'btn btn-danger'])!!}
+  					{!!Form::close()!!}
   				</td>
   			</tbody>
   		@endforeach
