@@ -2,16 +2,19 @@
 
 namespace Cinema\Http\Controllers;
 
+use Cinema\AreaProfesional;
 use Illuminate\Http\Request;
 use Cinema\Http\Requests;
 use Cinema\Http\Controllers\Controller;
 use Cinema\Profesional;
 use Cinema\Proyecto;
 use Cinema\Assignment;
+use Illuminate\Support\Facades\Input;
 use Session;
 use Redirect;
 use Illuminate\Routing\Route;
 use DB;
+use PDF;
 class AsignacionController extends Controller
 {
     /**
@@ -21,30 +24,44 @@ class AsignacionController extends Controller
      */
     public function index()
     {
-        //$asignaciones=Assignment::Asignaciones();
-        $asignaciones=Assignment::AsignacionesTribu();
+        $proyectos=Proyecto::paginate($this->PAGE_SIZE);
 
       // return $asignaciones;
-      return view('asignacion.index', compact('asignaciones'));
+      return view('asignacion.index', compact('proyectos'));
     }
 
-
-
-
+    public function getTribunalsAssigned($project) {
+        $tribunales = Assignment::getTribunalesAsignados($project);
+        //return json_encode($tribunales);
+        return view('profesional.tribunalesasignados',compact('tribunales'));
+    }
+    public function getProfesionalsAreaByProject($projectId) {
+        $project = Proyecto::find($projectId);
+        $tribunales = Assignment::getAsignmentsByProjectId($project->id);
+        $exclude = [];
+        foreach ($tribunales as $tribunal) {
+            array_push($exclude, $tribunal->profesional_id);
+        }
+        array_push($exclude, $project->tutor_id);
+        $profesionals = AreaProfesional::getProfesionalByArea($project->area_id, $exclude);
+        //return json_encode($exclude);
+        return view('profesional.profesionalesarea',compact('profesionals'));
+    }
 
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        $profesionales=Profesional::lists('name','id');
-        $proyectos=Proyecto::lists('titulo','id');
+    public function create(){
+        $proyectos=Proyecto::all();
+        return view('asignacion.create',compact('proyectos'));
 
+    }
 
-
-        return view('asignacion.create',compact('profesionales','proyectos'));
+    public function createSpecific($project){
+        $proyectos=Proyecto::all();
+        return view('asignacion.create',compact('proyectos'));
 
     }
     public function selectAjax(Request $request)
@@ -68,39 +85,22 @@ class AsignacionController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        $datos = $request->all();
-
-    //    dd($request->all()['titulo_id']);
-        /**
-         *   #parameters: array:5 [▼
-        "_token" => "fejGhaa9df2FJvupAVmL3IBLB1d838CflRJa2cGn"
-        "titulo_id" => "1"
-        "name_id" => "1"
-        "tri_1" => "1"
-        "tri_2" => "1"
-         */
-      //  Assignment::create($request->parameters);
-
-        $tribunal = new Assignment();
-        $tribunal->titulo_id =$datos['titulo_id'];
-        $tribunal->name_id = $datos['name_id'];
-        $tribunal->save();
-
-        $tribunal1 = new Assignment();
-        $tribunal1->titulo_id =$datos['titulo_id'];
-        $tribunal1->name_id = $datos['tri_1'];
-        $tribunal1->save();
-
-        $tribunal2 = new Assignment();
-        $tribunal2->titulo_id =$datos['titulo_id'];
-        $tribunal2->name_id = $datos['tri_2'];
-        $tribunal2->save();
-
-        return redirect('/asignacion');
+    public function store(Request $request) {
+        Assignment::create($request->all());
+        $proyectos=Proyecto::all();
+        return view('asignacion.create',compact('proyectos'));
     }
 
+    public function storePost(Request $request) {
+        if($request->ajax()){
+            $data = Input::all();
+
+            return response()->json([
+                'error' => false,
+                'insertedData' => $data
+            ]);
+        }
+    }
     /**
      * Display the specified resource.
      *
@@ -109,11 +109,26 @@ class AsignacionController extends Controller
      */
     public function show($id)
     {
-       $asignaciones = Assignment::where('titulo_id', $id)->get();
-       $proyecto = Proyecto::findOrFail($id);
-        return view('asignacion.show', compact('asignaciones','proyecto'));
+    //    $asignaciones = Assignment::where('titulo_id', $id)->get();
+    //    $proyecto = Proyecto::findOrFail($id);
+    //     return view('asignacion.show', compact('asignaciones','proyecto'));
+    $proyectos = Proyecto::find($id);
+	$view = view ('asignacion.show',compact('proyectos'));
+       	$pdf = \App::make('dompdf.wrapper');
+        $pdf->loadHTML($view);
+        return $pdf->stream('reporte.pdf');
 
     }
+
+    // public function verpdf($id)
+    // {
+    //     $proyecto = Assignment::find($id);
+	// 	$view = view ('asignacion.verpdf',compact('proyecto'));
+    //   	$pdf = \App::make('dompdf.wrapper');
+    //    	$pdf->loadHTML($view);
+
+    //    	return $pdf->stream('proyecto');
+    // }
 
     /**
      * Show the form for editing the specified resource.
@@ -123,11 +138,13 @@ class AsignacionController extends Controller
      */
     public function edit($id  )
     {
-      return $id;
-      $profesionales=Profesional::lists('name','id');
-        //$data=Req::lists('id','name');
-      // return $asignaciones;
-      return view('asignacion.edit', compact('profesionales'));
+        $proyectos=Proyecto::all();
+        return view('asignacion.create',compact('proyectos'));
+      //return $id;
+    //   $profesionales=Profesional::lists('name','id');
+    //   //$data=Req::lists('id','name');
+    //   // return $asignaciones;
+    //   return view('asignacion.edit', compact('profesionales'));
     }
 
     /**
@@ -150,6 +167,16 @@ class AsignacionController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $assigned = Assignment::find($id);
+        $assigned->delete();
+        return view('asignacion.create',compact('proyectos'));
+    }
+
+    public function deleteTribunal($id)
+    {
+        $assigned = Assignment::find($id);
+        $assigned->delete();
+        $proyectos=Proyecto::all();
+        return view('asignacion.create',compact('proyectos'));
     }
 }

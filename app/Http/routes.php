@@ -23,6 +23,21 @@ Route::resource('modalidad','ModalidadController');
 Route::resource('area','AreaController');
 Route::resource('proyecto','ProyectoController');
 Route::resource('subarea','SubareaController');
+//Route::get('area/','AreaController@getAreas');
+//Route::get('areas/','AreaController@getAreas');
+Route::get('subareas/{area}','AreaController@getSubAreas');
+Route::get('profesionals/project/{area}','AsignacionController@getProfesionalsAreaByProject');
+Route::get('tribunales/asignados/{project}','AsignacionController@getTribunalsAssigned');
+Route::get('tribunales/delete/{id}','AsignacionController@deleteTribunal');
+Route::get('filter/by/criterias','ProyectoController@searchProjetCriteria');
+Route::post('proyecto/filter','ProyectoController@filterProjects')->name('proyecto.filter');
+Route::get('reporte/profesional/{profesional}', 'ReporteController@getReportProfesional');
+Route::get('preview/reporte/profesional', 'ReporteController@profesionalReport');
+//reporte proyecto
+Route::get('reporte/proyecto/{proyecto}', 'Reporte2Controller@getReportProyecto');
+Route::get('preview/reporte/proyecto', 'Reporte2Controller@proyectoReport');
+//AREA-SUBAREA
+Route::get('preview/area/areas', 'AreaController@getSubAreas');
 //RUTA PARA ROLES
 
 Route::resource('rol','RolController');
@@ -39,7 +54,11 @@ Route::resource('profesional','ProfesionalController');
 Route::resource('auxiliar', 'AuxiliarController');
 
 Route::resource('asignacion', 'AsignacionController');
+Route::post('asignacionpost', 'AsignacionController@storePost');
+Route::resource('asignacion/create/{project}', 'AsignacionController@createSpecific');
 
 Route::post('select-ajax', ['as'=>'select-ajax','uses'=>'AsignacionController@selectAjax']);
 
 Route::resource('reporte', 'ReporteController');
+//reporte proyectos
+Route::resource('reporte2', 'Reporte2Controller');

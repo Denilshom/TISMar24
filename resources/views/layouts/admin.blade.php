@@ -6,11 +6,14 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
     <title>SATUMSS</title>
     {!!Html::style('css/bootstrap.min.css')!!}
     {!!Html::style('css/metisMenu.min.css')!!}
     {!!Html::style('css/sb-admin-2.css')!!}
     {!!Html::style('css/font-awesome.min.css')!!}
+    {!!Html::style('css/multi-select.dist.css')!!}
+    {!!Html::style('css/select2.css')!!}
 </head>
 
 
@@ -22,7 +25,7 @@
             <br>
             <nav class="navbar navbar-light bg-light">
                 <a class="navbar-brand" href="#" >
-                    <img src="images/UMSS.png" width="70" hidth="70" class="d-inline-block align-top">
+                    <img src="{{asset("images/UMSS.png")}}" width="70" hidth="70" class="d-inline-block align-top">
 
                 </a>
                 <h2 style="color:#5F6A6A;">Sistema De Asignación De Tribunales UMSS </h2>
@@ -53,12 +56,12 @@
             <ul class="nav navbar-top-links navbar-right">
                  <li class="dropdown">
                      <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                    <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
-                        {{-- {!!Auth::user()->name!!} --}}
+{!!Auth::user()->name!!}<i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
+                        
                     </a>
                     <ul class="dropdown-menu dropdown-user">
-                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> Ajustes</a>
-                        </li>
+                        {{-- <li><a href="#"><i class="fa fa-gear fa-fw"></i> Ajustes</a>
+                        </li> --}}
                         <li class="divider"></li>
                         <li><a href="/logout"><i class="fa fa-sign-out fa-fw"></i> Salir</a>
                         </li>
@@ -104,21 +107,13 @@
                             </ul>
                         </li>
                         <li>
-                            <a href="#"><i class=""></i> Subarea<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="{!!URL::to('/subarea/create')!!}"><i class='fa fa-plus fa-fw'></i> Agregar</a>
-                                </li>
-                                <li>
-                                    <a href="{!!URL::to('/subarea')!!}"><i class='fa fa-list-ol fa-fw'></i> Subreas</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
                             <a href="#"><i class=""></i> Area<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="{!!URL::to('/area/create')!!}"><i class='fa fa-plus fa-fw'></i> Agregar</a>
+                                    <a href="{!!URL::to('/area/areas')!!}"><i class='fa fa-plus fa-fw'></i> Agregar Area</a>
+                                </li>
+                                <li>
+                                    <a href="{!!URL::to('/area/create')!!}"><i class='fa fa-plus fa-fw'></i> Agregar Sub-Area</a>
                                 </li>
                                 <li>
                                     <a href="{!!URL::to('/area')!!}"><i class='fa fa-list-ol fa-fw'></i> Areas</a>
@@ -164,10 +159,13 @@
                             <a href="#"><i class=""></i> Reportes<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="{!!URL::to('/area/create')!!}"><i class='fa fa-plus fa-fw'></i> Busqueda</a>
+                                    <a href="{!!URL::to('/filter/by/criterias')!!}"><i class='fa fa-search'></i> Busqueda</a>
                                 </li>
                                 <li>
-                                    <a href="{!!URL::to('/area')!!}"><i class='fa fa-list-ol fa-fw'></i> Consultas</a>
+                                    <a href="{!!URL::to('/preview/reporte/profesional')!!}"><i class='fa fa-file-pdf-o'></i> Consultas</a>
+                                </li>
+                                <li>
+                                    <a href="{!!URL::to('/preview/reporte/proyecto')!!}"><i class='fa fa-file-pdf-o'></i> Consultas II</a>
                                 </li>
                             </ul>
                         </li>
@@ -189,6 +187,11 @@
     {!!Html::script('js/bootstrap.min.js')!!}
     {!!Html::script('js/metisMenu.min.js')!!}
     {!!Html::script('js/sb-admin-2.js')!!}
+    {!!Html::script('js/select2.js')!!}
+    {!!Html::script('js/jquery.quicksearch.js')!!}
+    {!!Html::script('js/jquery.multi-select.js')!!}
+    {!!Html::script('js/pdfobject.js')!!}
+    {!!Html::script('js/forms.js')!!}
 
     @stack('scripts')
 </body>

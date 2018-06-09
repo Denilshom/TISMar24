@@ -138,6 +138,7 @@ return [
         Illuminate\View\ViewServiceProvider::class,
 
         Barryvdh\DomPDF\ServiceProvider::class,
+        
         /*
          * Application Service Providers...
          */

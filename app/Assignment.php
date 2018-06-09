@@ -8,12 +8,25 @@ use DB;
 class Assignment extends Model
 {
     protected $table='assignments';
-    protected $fillable=['name_id','titulo_id'];
+    protected $fillable=['id','profesional_id','proyecto_id'];
 
     public  function  Proyecto()
     {
         return $this->belongsTo('App\Producto');
     }
+
+    public static function getTribunalesAsignados($projectId) {
+        return DB::table('profesionals')
+            ->join('assignments','profesionals.id','=','assignments.profesional_id')
+            ->where('assignments.proyecto_id', '=', $projectId)
+            -> select('profesionals.*','assignments.*')->get();
+    }
+
+    public static function getAsignmentsByProjectId($projectId) {
+        return DB::table('assignments')
+            ->where('proyecto_id', '=', $projectId)->get();
+    }
+
     public  static  function AsignacionesTribu() {
         return  DB::table('proyectos')
                 ->leftJoin('assignments', 'proyectos.id', '=', 'assignments.titulo_id')

@@ -352,3 +352,24 @@ table.dataTable thead .sorting:after {
 .panel-yellow a:hover {
     color: #df8a13;
 }
+
+.badge-success{
+    background-color: #5cba5d;
+}
+
+.pdfobject-container {
+    height: 70vh;
+}
+
+.pdfobject {
+    border: 1px solid #666;
+}
+
+.ms-container .ms-list {
+    height: 140px !important;
+}
+
+legend {
+    color: #31708f;
+    border-bottom: 3px solid #31708f;
+}

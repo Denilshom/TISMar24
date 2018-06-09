@@ -24,8 +24,8 @@ class AreaCreateRequest extends Request
     public function rules()
     {
         return [
-            'nameare' => 'required',
-            'namesubare'=>'required',
+            'nameare' => 'required|alpha|max:15|unique:areas',
+            //'area_id'=>'required|alpha|max:15|unique:areas',
         ];
     }
 }

@@ -20,9 +20,14 @@ class AreaController extends Controller
      */
      public function index()
      {
-       $areas = Area::paginate(5);
-         // $areas = Area::all();
+        $areas = Area::paginate($this->PAGE_SIZE);
+          //$areas = Area::getAreas();
          return view('area.index',compact('areas'));
+     }
+
+     public function getSubAreas($area) {
+         $subareas = Area::getSubAreas($area);
+         return view('area.subareas', compact('subareas'));
      }
     /**
      * Show the form for creating a new resource.
@@ -31,7 +36,16 @@ class AreaController extends Controller
      */
     public function create()
     {
-      return view('area.create');
+        $areas=Area::getAreas();
+       // $areas=Area::all();
+       // dd($areas);
+        return view('area.create', compact('areas'));
+
+    }
+    public function createAreas()
+    {
+        //
+
     }
 
     /**
@@ -40,14 +54,24 @@ class AreaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
+    public function show()
+    {
+       // $areas=Area::all();
+        //$areas=Area::all();
+       // dd($areas);
+        return view('area.creararea');
+    }
+    
+    
     public function store(AreaCreateRequest $request)
     {
       Area::create([
           'nameare' => $request['nameare'],
-          'namesubare' => $request['namesubare'],
+          'area_id' => $request['area_id'],
 
       ]);
-      return redirect('/area')->with('message','Area creada correctamente');
+      return redirect('/area')->with('message','creado correctamente');
     }
 
     /**
@@ -56,10 +80,7 @@ class AreaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
-        //
-    }
+    
 
     /**
      * Show the form for editing the specified resource.
@@ -69,7 +90,7 @@ class AreaController extends Controller
      */
     public function edit($id)
     {
-      $area = Area::find($id);
+      $area = Area::getAreas();
       return view('area.edit',['area'=>$area]);
     }
 

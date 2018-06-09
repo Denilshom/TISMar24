@@ -26,7 +26,7 @@ class ProfCreateRequest extends Request
         return [
           'name' => 'required|alpha|max:50',
           'surname' => 'required|alpha|max:50',
-          'email' => 'required|email|max:50',
+          'email' => 'required|email|unique:profesionals',
           'phone' => 'required|numeric',
           'password' => 'required|max:50',
           'confirmar_contrasena' => 'required|same:password',

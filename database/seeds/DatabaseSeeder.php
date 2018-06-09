@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
         $this->call(AreaSeeder::class);
         $this->call(CarreraSeeder::class);
         $this->call(ModalidadSeeder::class);
+        $this->call(GestionSeeder::class);
         Model::reguard();
     }
 }

@@ -1,29 +1,17 @@
-@extends('layouts.admin')
-@section('content')
 
-	<h4> Nombre del Proyecto : {{ $proyecto->titulo }}</h4>
-  <table class="table">
+<h1>Titulo del Proyecto:{{$proyectos->titulo}}</h1>
+<h2>Autor:{{$proyectos->author}}</h2>
+<h2>Tutor:{{$proyectos->tutor_data}}</h2>
+     @foreach($proyectos->proyectoDetalle as $proyecto)
+        <h2>Tribunales:
+                @foreach($proyecto->proyectoTribunales as $profesional)
+                    <span class="badge badge-success">
+                        {{$profesional->name}}  {{$profesional->surname}}
+                    </span> <br>
+                @endforeach
+    
+    </h2>
+    @endforeach
 
-  		<thead>
-			<th>ID</th>
-
-  			<th>Tribunales</th>
-			  <th>Operacion</th>
-  		</thead>
-
-  		@foreach($asignaciones as $assigned)
-  			<tbody>
-				<td>{{$assigned->titulo_id}}</td>
-  				<td>{{ \Cinema\Profesional::findOrFail($assigned->name_id)->name }}</td>
-
-  				<td>
-
-  					{!!Form::open(['route'=>['asignacion.edit', $assigned->id], 'method' => 'PUT'])!!}
-  						{!!Form::submit('cambiar',['class'=>'btn btn-danger'])!!}
-  					{!!Form::close()!!}
-  				</td>
-  			</tbody>
-  		@endforeach
-  	</table>
-    {{-- {!!$var->render()!!} --}}
-@endsection
+<h2>Nombre de Archivo:<a>{{$proyectos->path}}</h2>
+<h2>Descripcion:{{$proyectos->descripcion}}</h2>

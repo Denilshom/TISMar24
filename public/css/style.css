@@ -2213,3 +2213,6 @@ font-weight: 700;
 		overflow:hidden;
 	}
 }
+.badge-success{
+	background-color: #3bd369;
+}

@@ -24,10 +24,8 @@ class AreaUpdateRequest extends Request
     public function rules()
     {
         return [
-            'nameare' => 'required',
-            'namesubare'=>'required',
-            // 'email' => 'required|unique:users',
-            // 'password' => 'required',
+            'nameare' => 'required|alpha|max:15|unique',
+           // 'area_id'=>'required|alpha|max:15|unique',
         ];
     }
   }

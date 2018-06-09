@@ -15,17 +15,23 @@ class CreateProyectosTable extends Migration
     {
         Schema::create('proyectos', function (Blueprint $table) {
             $table->increments('id');
+            $table->boolean("defended");
+            $table->string("project_number");
             $table->string('titulo');
-            $table->string('autor');
-            $table->string('tutor');
-            $table->string('path');
-            $table->string('descripcion');
+            $table->integer('tutor_id');
+            $table->string('tutor_data')->nullable();
+            $table->string('author');
+            $table->string('path')->nullable();
+            $table->string('descripcion')->nullable();
             $table->integer('namecarre_id')->unsigned();
             $table->foreign('namecarre_id')->references('id')->on('carreras');
+            $table->integer('gestion_id')->unsigned();
+            $table->foreign('gestion_id')->references('id')->on('gestions');
             $table->rememberToken();
             $table->timestamps();
-            $table->integer('nameare_id')->unsigned();
-            $table->foreign('nameare_id')->references('id')->on('areas');
+            $table->integer('area_id');
+            $table->integer('subarea_id')->unsigned();
+            $table->foreign('subarea_id')->references('id')->on('areas');
             $table->integer('namemodal_id')->unsigned();
             $table->foreign('namemodal_id')->references('id')->on('modalidads');
         });

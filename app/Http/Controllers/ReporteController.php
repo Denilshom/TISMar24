@@ -2,9 +2,11 @@
 
 namespace Cinema\Http\Controllers;
 
+use Cinema\Profesional;
 use Illuminate\Http\Request;
 use Cinema\Http\Requests;
 use Cinema\Http\Controllers\Controller;
+use PDF;
 
 class ReporteController extends Controller
 {
@@ -15,9 +17,26 @@ class ReporteController extends Controller
      */
     public function index()
     {
-        //
+
     }
 
+    public function profesionalReport() {
+        $profesionales = Profesional::all();
+        return view('reporte.profesionals', compact('profesionales'));
+    }
+    public function getReportProfesional($profesional) {
+        $data = Profesional::find($profesional);
+        view()->share('data', $data);
+        $pdf = PDF::loadView('reporte.reporte-profesional');
+        //return $pdf->stream();
+
+        $file = "reports/reporte".$data->code_number.".pdf";
+        $pdf->save($file);
+        $url = url($file);
+        return $url;
+
+        //return $pdf->download($data->code_number.'.pdf');
+    }
     /**
      * Show the form for creating a new resource.
      *

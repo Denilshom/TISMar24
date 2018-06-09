@@ -2,6 +2,7 @@
 
 namespace Cinema\Http\Controllers;
 
+use Cinema\AreaProfesional;
 use Illuminate\Http\Request;
 use Cinema\Http\Requests;
 use Cinema\Http\Requests\ProfCreateRequest;
@@ -12,6 +13,7 @@ use Cinema\Area;
 use Cinema\Carrera;
 use Session;
 use Redirect;
+use DB;
 use Illuminate\Routing\Route;
 
 class ProfesionalController extends Controller
@@ -28,24 +30,26 @@ class ProfesionalController extends Controller
 
      public function index()
      {
-        $profesionals=Profesional::Profesionals();
+        $profesionals=Profesional::paginate($this->PAGE_SIZE);
 
         return view('profesional.index',compact('profesionals'));
      }
     
     public function create()
     {
-        $areas=Area::all();
+        $areas=Area::getAreas();
         $carreras=Carrera::lists('namecarre','id');
         return view('profesional.create', compact('areas','carreras'));
 
     }
 
-    
-    public function store(ProfCreateRequest $request)
-    {
-        Profesional::create($request->all());
-
+    public function store(ProfCreateRequest $request){
+        DB::transaction(function () use ($request) {
+            $profesional = Profesional::create($request->all());
+            foreach ($request->get("nameare_id") as $area) {
+                AreaProfesional::create(['area_id'=> $area, 'profesional_id'=> $profesional->id]);
+            }
+        });
         return redirect('/profesional')->with('message','Creado exitosamente');
     }
 
@@ -58,7 +62,7 @@ class ProfesionalController extends Controller
 
     public function edit($id)
     {
-        $areas=Area::all();
+        $areas=Area::getAreas();
         $carreras = Carrera::lists('namecarre','id');
         return view('profesional.edit',['profesional'=>$this->profesional,'areas'=>$areas,'carreras'=>$carreras]);
     }

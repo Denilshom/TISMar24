@@ -14,10 +14,10 @@ class CreateAssignmentsTable extends Migration
     {
         Schema::create('assignments', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('name_id')->unsigned();
-            $table->foreign('name_id')->references('id')->on('profesionals');
-            $table->integer('titulo_id')->unsigned();
-            $table->foreign('titulo_id')->references('id')->on('proyectos');
+            $table->integer('profesional_id')->unsigned();
+            $table->foreign('profesional_id')->references('id')->on('profesionals');
+            $table->integer('proyecto_id')->unsigned();
+            $table->foreign('proyecto_id')->references('id')->on('proyectos');
             $table->timestamps();
 
         });

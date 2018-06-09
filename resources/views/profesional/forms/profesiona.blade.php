@@ -1,103 +1,68 @@
-
-
 <div class="form-group">
-		{!!Form::label('nombre','Nombre:')!!}
-		{!!Form::text('name',null,['class'=>'form-control','placeholder'=>'Ingresa el Nombre del usuario'])!!}
-</div>
-
-<div class="form-group">
- {!!Form:: label ('Apellido')!!}
- {!!Form::text('surname',null, ['class'=>'form-control', 'placeholder'=>'Ingresar apellido'])!!}
-</div>
-
-<div class="form-group">
-{!!Form:: label ('Telefono')!!}
-{!!Form::text('phone',null, ['class'=>'form-control', 'placeholder'=>'Ingresa el numero de telefono'])!!}
-</div>
-
-
-{{-- prueba 2 select dinamico --}}
-{{-- {!!Form:: label ('Area')!!}
-<div class="panel panel-default">
-  <div class="panel-body">
-
-  <div id="education_fields">
-
-  </div>
-
-<div class="col-sm-3 nopadding">
-  <div class="form-group">
-    <div class="input-group">
-      <select name="nameare_id[]"  class="form-control" id="educationDate" >
-	      @foreach($areas as $area)
-	        <option value="{{ $area['id'] }}">{{$area['nameare']}}</option>
-        @endforeach
-      </select>
-      <div class="input-group-btn">
-        <button class="btn btn-success" type="button"  onclick="education_fields();"> <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> </button>
-      </div>
+    {!!Form::label('name','Nombre:', ['class' => 'col-sm-2 control-label'])!!}
+    <div class="col-sm-10">
+        {!!Form::text('name',null,['class'=>'form-control','placeholder'=>'Ingresa el Nombre del usuario'])!!}
     </div>
-  </div>
-</div>
-<div class="clear"></div>
-
-  </div>
-  <div class="panel-footer"><small>Press <span class="glyphicon glyphicon-plus gs"></span> to add another form field :)</small>, <small>Press <span class="glyphicon glyphicon-minus gs"></span> to remove form field :)</small></div>
-</div>
-
-<script>
-var room = 1;
-function education_fields() {
-
-    room++;
-    var objTo = document.getElementById('education_fields')
-    var divtest = document.createElement("div");
-	divtest.setAttribute("class", "form-group removeclass"+room);
-	var rdiv = 'removeclass'+room;
-    divtest.innerHTML = '<div class="col-sm-3 nopadding"><div class="form-group"><div class="input-group"> <select name="nameare_id"  class="form-control" id="educationDate">@foreach($areas as $area) <option value="{{ $area['id'] }}">{{$area['nameare']}}</option> @endforeach </select><div class="input-group-btn"> <button class="btn btn-danger" type="button" onclick="remove_education_fields('+ room +');"> <span class="glyphicon glyphicon-minus" aria-hidden="true"></span> </button></div></div></div></div><div class="clear"></div>';
-
-    objTo.appendChild(divtest)
-}
-   function remove_education_fields(rid) {
-	   $('.removeclass'+rid).remove();
-   }
-</script> --}}
-
-{{-- fin prueba 2 select dinamico--}}
-{{-- ahora --}}
-<div class="input-group">
-<label for="">Invitado:</label>
-<select name="invitado"  class="form-control">
-<option value="Si">SI</option>
-<option value="No">NO</option>
-</select>
-</div>
-
-<div class="input-group">
-<label for="">Areas:</label>
-<select name="nameare_id"  size="3" class="form-control" id="educationDate" multiple>
-	      @foreach($areas as $area)
-	        <option value="{{ $area['id'] }}">{{$area['nameare']}}</option>
-        @endforeach
-</select>
-</div>
-<div class="form-group">
-			{!!Form::label('Carrera','Carrera:')!!}
-			{!!Form::select('namecarre_id',$carreras)!!}
-		</div>
-
-<div class="form-group">
-		{!!Form::label('email','Correo:')!!}
-		{!!Form::text('email',null,['class'=>'form-control','placeholder'=>'Ingresa el Nombre del usuario'])!!}
 </div>
 
 <div class="form-group">
-		{!!Form::label('password','Contraseña:')!!}
-		{!!Form::password('password',['class'=>'form-control','placeholder'=>'Ingresa la contraseña del usuario'])!!}
+    {!!Form::label('surname','Apellido:', ['class' => 'col-sm-2 control-label'])!!}
+    <div class="col-sm-10">
+        {!!Form::text('surname',null, ['class'=>'form-control', 'placeholder'=>'Ingresar apellido'])!!}
+    </div>
 </div>
 
 <div class="form-group">
-    {!!Form:: label ('Confirmar contrasena')!!}
-    {!!Form::password('confirmar_contrasena',['class'=>'form-control', 'placeholder'=>'Ingresa la misma contrasena del usuario'])!!}
+    {!!Form::label('phone','Telefono:', ['class' => 'col-sm-2 control-label'])!!}
+    <div class="col-sm-10">
+        {!!Form::text('phone',null, ['class'=>'form-control', 'placeholder'=>'Ingresa el numero de telefono'])!!}
+    </div>
+</div>
+
+<div class="form-group">
+    <label for="educationDate" class="col-sm-2 control-label">Areas:</label>
+    <div class="col-sm-10">
+        <select name="nameare_id[]" size="5" class="form-control js-example-basic-multiple" id="educationDate" multiple>
+            @foreach($areas as $area)
+                <option value="{{ $area->id }}">{{$area->nameare}}</option>
+            @endforeach
+        </select>
+    </div>
+</div>
+<div class="form-group">
+    {!!Form::label('namecarre_id','Carrera:', ['class' => 'col-sm-2 control-label'])!!}
+    <div class="col-sm-10">
+        {!!Form::select('namecarre_id',$carreras, null, ['class'=> 'form-control'])!!}
+    </div>
+</div>
+<div class="form-group">
+    <label for="invitado" class="col-sm-2 control-label">Invitado:</label>
+    <div class="col-sm-10">
+        <select name="invitado" id="invitado" class="form-control">
+            <option value="Si">SI</option>
+            <option value="No">NO</option>
+        </select>
+    </div>
+</div>
+
+<div class="form-group">
+    {!!Form::label('email','Correo:', ['class' => 'col-sm-2 control-label'])!!}
+    <div class="col-sm-10">
+        {!!Form::text('email',null,['class'=>'form-control','placeholder'=>'Ingresa el Nombre del usuario'])!!}
+    </div>
+</div>
+
+<div class="form-group">
+    {!!Form::label('password','Contraseña:', ['class' => 'col-sm-2 control-label'])!!}
+    <div class="col-sm-10">
+        {!!Form::password('password',['class'=>'form-control','placeholder'=>'Ingresa la contraseña del usuario'])!!}
+    </div>
+</div>
+
+<div class="form-group">
+    {!!Form::label('confirmar_contrasena','Confirmar contrasena:', ['class' => 'col-sm-2 control-label'])!!}
+    <div class="col-sm-10">
+        {!!Form::password('confirmar_contrasena',['class'=>'form-control', 'placeholder'=>'Ingresa la misma contrasena del usuario'])!!}
+    </div>
 </div>
 {{-- fin de registro de profesional --}}

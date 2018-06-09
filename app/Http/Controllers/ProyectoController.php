@@ -2,6 +2,8 @@
 
 namespace Cinema\Http\Controllers;
 
+use Cinema\Gestion;
+use Cinema\Profesional;
 use Illuminate\Http\Request;
 use Cinema\Http\Requests;
 use Cinema\Http\Requests\ProyCreateRequest;
@@ -30,11 +32,21 @@ class ProyectoController extends Controller
     public function index()
     {
         $proyectos = Proyecto::Proyectos();
-        // return $proyectos;
         return view('proyecto.index',compact('proyectos'));
 
     }
+    public function searchProjetCriteria(){
+        $carreras = Carrera::all();
+        $gestiones = Gestion::all();
+        $modalidades = Modalidad::all();
+        $proyectos = Proyecto::proyectosGroupByCreatedAt();
+        return view('proyecto.filter', compact('carreras', 'modalidades', 'proyectos', 'gestiones'));
+    }
 
+    public function filterProjects(Request $request){
+        $proyectos = Proyecto::filterProjects($request);
+        return view('proyecto.filter-data',compact('proyectos'));
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -43,10 +55,11 @@ class ProyectoController extends Controller
     public function create()
     {
         $carreras=Carrera::lists('namecarre','id');
-
-        $areas=Area::lists('nameare','id');
+        $tutores = Profesional::all();
+        $areas=Area::getAreas();
+        $gestiones = Gestion::all();
         $modalidads=Modalidad::lists('namemodal','id');
-        return view('proyecto.create',compact('carreras','areas','modalidads'));
+        return view('proyecto.create',compact('carreras','areas','modalidads', 'tutores', 'gestiones'));
 
     }
 
@@ -56,18 +69,11 @@ class ProyectoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(ProyCreateRequest $request)
-    {
-        Proyecto::create($request->all());
-        // Proyecto::create([
-        //     'titulo' => $request['titulo'],
-        //     'autor' => $request['autor'],
-        //     'tutor' => $request['tutor'],
-        //     // 'namemodal' => $request['namemodal'],
-        //     // 'namecarre' => $request['namecarre'],
-        //     // 'nameare' => $request['nameare'],
-        //     'path' => $request['path'],
-        // ]);
+    public function store(ProyCreateRequest $request){
+        $profesional = Profesional::find($request->get("tutor_id"));
+        $data = $request->all();
+        $data["tutor_data"] = $profesional->name. ' '.$profesional->surname;
+        Proyecto::create($data);
         return redirect('/proyecto')->with('message','Creado exitosamente');
     }
 
@@ -88,19 +94,13 @@ class ProyectoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
-        // return $id;
-        // $proyecto = Proyecto::find($id);
-        // return view('proyecto.edit',['proyecto'=>$proyecto]);
-        $carreras = Carrera::lists('namecarre','id');
-        // return $carreras;
-        $areas = Area::lists('nameare','id');
-
-
-        $modalidads = Modalidad::lists('namemodal','id');
-
-        return view('proyecto.edit',['proyecto'=>$this->proyecto,'carreras'=>$carreras,'modalidads'=>$modalidads,'areas'=>$areas]);
+    public function edit($id){
+        $carreras=Carrera::lists('namecarre','id');
+        $tutores = Profesional::all();
+        $areas=Area::getAreas();
+        $modalidads=Modalidad::lists('namemodal','id');
+        $gestiones = Gestion::all();
+        return view('proyecto.edit',['proyecto'=>$this->proyecto,'carreras'=>$carreras,'modalidads'=>$modalidads,'areas'=>$areas, 'tutores'=> $tutores, 'gestiones'=> $gestiones]);
     }
 
     /**

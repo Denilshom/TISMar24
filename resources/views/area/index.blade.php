@@ -11,13 +11,13 @@
 	<table class="table">
 		<thead>
 			<th>Area</th>
-			<th>Sub-Area</th>
+			
 			<th>Operacion</th>
 		</thead>
 		@foreach($areas as $area)
 			<tbody>
 				<td>{{$area->nameare}}</td>
-				<td>{{$area->namesubare}}</td>
+				
 				<td>
 					{!!link_to_route('area.edit', $title = 'Editar', $parameters = $area, $attributes = ['class'=>'btn btn-primary'])!!}
 					{!!Form::open(['route'=>['area.destroy', $area], 'method' => 'DELETE'])!!}

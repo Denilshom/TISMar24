@@ -12,39 +12,43 @@ class AreaSeeder extends Seeder
     public function run()
     {
         Area::create([
-            
             'nameare'=>'Base de Datos',
-            'namesubare'=>'Base de Datos',
-            
-            
         ]);
         Area::create([
-            
             'nameare'=>'Redes',
-            'namesubare'=>'Redes',
-            
-            
         ]);
         Area::create([
-            
             'nameare'=>'Ingenieria de Software',
-            'namesubare'=>'Ingenieria de Software',
-            
-            
+        ]);
+
+        Area::create([
+            'nameare'=>'Test Unit Base de Datos',
+            'area_id'=>1
         ]);
         Area::create([
-            
-            'nameare'=>'Sistemas Telematicos',
-            'namesubare'=>'Sistemas Telematicos',
-            
-            
+            'nameare'=>'Data population',
+            'area_id'=>1
+
         ]);
+
         Area::create([
-            
             'nameare'=>'Telecomunicaciones',
-            'namesubare'=>'Telecomunicaciones',
-            
-            
+            'area_id'=>2
+        ]);
+        Area::create([
+            'nameare'=>'Seguridad de redes',
+            'area_id'=>2
+
+        ]);
+
+        Area::create([
+            'nameare'=>'Sistemas Informacion I',
+            'area_id'=>3
+        ]);
+        Area::create([
+            'nameare'=>'Sistemas Informacion II',
+            'area_id'=>3
+
         ]);
     }
 }

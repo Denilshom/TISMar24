@@ -9,6 +9,7 @@ use Illuminate\Foundation\Auth\Access\Authorizable;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
+use DB;
 
 class Area extends Model implements AuthenticatableContract,
                                     AuthorizableContract,
@@ -28,7 +29,7 @@ class Area extends Model implements AuthenticatableContract,
      *
      * @var array
      */
-    protected $fillable = ['nameare','namesubare'];
+    protected $fillable = ['nameare', 'area_id'];
 
     /**
      * The attributes excluded from the model's JSON form.
@@ -41,5 +42,20 @@ class Area extends Model implements AuthenticatableContract,
         // if(!empty($valor)){
         //     $this->attributes['password'] = \Hash::make($valor);
         // }
+    }
+
+    public function profesionals()
+    {
+        return $this->belongsToMany('Profesional');
+    }
+
+    public static function getAreas() {
+        return DB::table('areas')
+            ->whereNull('area_id')
+            ->get();
+    }
+
+    public static function getSubAreas($area) {
+        return DB::table('areas')->where('area_id', '=', $area)->get();
     }
 }
